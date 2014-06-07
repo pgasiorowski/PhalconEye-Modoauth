@@ -89,6 +89,6 @@ class ServiceFactory
      */
     protected function getFullyQualifiedServiceClass($service)
     {
-        return __NAMESPACE__ . '\\Service\\' . $service;
+        return __NAMESPACE__ . '\\Service\\' . ucfirst($service);
     }
 }
