@@ -16,7 +16,7 @@ Requirements
 ------------
 
 * PHP 5.4+
-* PhalconEye 0.4.1+
+* PhalconEye 0.5.0+
 * PHPoAuthLib Library
 
 Installation
