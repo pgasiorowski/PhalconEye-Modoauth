@@ -14,8 +14,8 @@ namespace Modoauth\Controller;
 
 use Core\Controller\AbstractController;
 use Modoauth\Form\Element\SocialLogin;
-use Modoauth\Lib\Scope;
-use Modoauth\Lib\ServiceFactory;
+use Modoauth\Library\Scope;
+use Modoauth\Library\ServiceFactory;
 use Phalcon\Db\Column;
 use Phalcon\Mvc\Dispatcher\Exception;
 use User\Form\Auth\Login as LoginForm;
@@ -44,14 +44,8 @@ class IndexController extends AbstractController
         // Render header and footer.
         $this->renderParts();
 
-        // todo: add styles
-        /*
-        $this->assets->set(
-            'Modoauth',
-            $this->assets->getEmptyCssCollection()
-                ->addCss('assets/css/theme.css')
-        );
-        */
+        // Add styles
+        $this->assets->addCss('assets/css/modoauth/login.css');
 
         $form = $this->view->form = new LoginForm;
         $fieldset = $form->addContentFieldSet()

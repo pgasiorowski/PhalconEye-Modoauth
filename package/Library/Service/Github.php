@@ -10,14 +10,22 @@
   +------------------------------------------------------------------------+
 */
 
-namespace Modoauth\Lib\Service;
+namespace Modoauth\Library\Service;
 
-interface ServiceInterface
+use OAuth\OAuth2\Service\GitHub as Service;
+
+class GitHub extends Service implements ServiceInterface
 {
+    const
+        OAUTH_SCOPE_USER_ID = parent::SCOPE_USER_EMAIL;
+
     /**
-     * Get user email
-     *
-     * @return string|null
+     * {@inheritdoc}
      */
-    public function getUserEmail();
+    public function getUserEmail()
+    {
+        $data = json_decode($this->request('user/emails'), true);
+
+        return $data? $data[0] : null;
+    }
 }

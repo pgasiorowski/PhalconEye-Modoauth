@@ -10,7 +10,7 @@
   +------------------------------------------------------------------------+
 */
 
-namespace Modoauth\Lib;
+namespace Modoauth\Library;
 
 class Scope implements \IteratorAggregate
 {

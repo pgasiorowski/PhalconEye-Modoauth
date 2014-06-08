@@ -10,7 +10,7 @@
   +------------------------------------------------------------------------+
 */
 
-namespace Modoauth\Lib;
+namespace Modoauth\Library;
 
 use Phalcon\Session\BagInterface as SessionBag;
 use OAuth\Common\Token\TokenInterface;

@@ -56,7 +56,7 @@ class SocialLogin extends AbstractElement implements ElementInterface
 
         return [
             'href' => $url->get(['for' => 'oauth-redirect','name' => $this->getName()]),
-            'class' => 'form-control form-login-with form-login-with-'. $this->getName(),
+            'class' => 'btn form-control form-login-with form-login-with-'. $this->getName(),
         ];
     }
 
@@ -78,7 +78,7 @@ class SocialLogin extends AbstractElement implements ElementInterface
     public function getHtmlTemplateValues()
     {
         // todo: translate
-        return ['Login with', $this->getName(), $this->getValue()];
+        return ['Login with', ucfirst($this->getName()), $this->getValue()];
     }
 
     /**

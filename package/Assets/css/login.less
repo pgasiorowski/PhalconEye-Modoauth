@@ -10,9 +10,34 @@
 */
 
 .form-login-with {
+  margin: 5px 0;
   display: block;
+  min-height: 32px;
+  line-height: 32px;
+  text-indent: 1em;
+  text-align: left;
 
-  .form-login-with-facebook {
-    color: red !important;
+  &:before {
+    content: " ";
+    background-color: transparent;
+    background-image: url("/assets/img/modoauth/mini-social-icons.png");
+    background-repeat: no-repeat;
+    background-size: auto 96px;
+    border: 0 none;
+    float: left;
+    height: 32px;
+    overflow: hidden;
+    text-align: left;
+    text-decoration: none;
+    text-indent: -999em;
+    width: 32px;
+    position: relative;
+    top: 0;
   }
+
+  &.form-login-with-facebook:before { background-position: 0 -32px }
+
+  &.form-login-with-github:before { background: none }
+
+  &.form-login-with-google:before { background-position: -96px -32px }
 }

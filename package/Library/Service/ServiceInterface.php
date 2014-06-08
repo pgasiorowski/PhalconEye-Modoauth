@@ -10,22 +10,14 @@
   +------------------------------------------------------------------------+
 */
 
-namespace Modoauth\Lib\Service;
+namespace Modoauth\Library\Service;
 
-use OAuth\OAuth2\Service\Facebook as Service;
-
-class Facebook extends Service implements ServiceInterface
+interface ServiceInterface
 {
-    const
-        OAUTH_SCOPE_USER_ID = parent::SCOPE_EMAIL;
-
     /**
-     * {@inheritdoc}
+     * Get user email
+     *
+     * @return string|null
      */
-    public function getUserEmail()
-    {
-        $data = json_decode($this->request('/me'), true);
-
-        return isset($data['email'])? $data['email'] : null;
-    }
+    public function getUserEmail();
 }

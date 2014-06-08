@@ -10,7 +10,7 @@
   +------------------------------------------------------------------------+
 */
 
-namespace Modoauth\Lib\Service;
+namespace Modoauth\Library\Service;
 
 use OAuth\OAuth2\Service\Google as Service;
 

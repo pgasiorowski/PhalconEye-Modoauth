@@ -10,13 +10,13 @@
   +------------------------------------------------------------------------+
 */
 
-namespace Modoauth\Lib;
+namespace Modoauth\Library;
 
 use Phalcon\Session\Bag;
 use Engine\Behaviour\DIBehaviour;
 use OAuth\Common\Http\Client\StreamClient;
 use OAuth\Common\Consumer\Credentials;
-use Modoauth\Lib\Service\ServiceInterface;
+use Modoauth\Library\Service\ServiceInterface;
 
 class ServiceFactory
 {
