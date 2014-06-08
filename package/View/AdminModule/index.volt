@@ -9,4 +9,16 @@
  +------------------------------------------------------------------------+
 #}
 
-{% extends "User/View/Auth/login.volt" %}
+{% extends "Core/View/layouts/admin.volt" %}
+
+{% block title %}{{ "Module OAuth settings"|i18n }}{% endblock %}
+
+{% block content %}
+    <div class="span12">
+        <div class="row-fluid">
+            {{ form.render() }}
+        </div>
+        <!--/row-->
+    </div><!--/span-->
+
+{% endblock %}

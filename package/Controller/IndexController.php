@@ -13,6 +13,7 @@
 namespace Modoauth\Controller;
 
 use Core\Controller\AbstractController;
+use Modoauth\Form\Element\SocialLogin;
 use Modoauth\Lib\Scope;
 use Modoauth\Lib\ServiceFactory;
 use Phalcon\Db\Column;
@@ -43,19 +44,24 @@ class IndexController extends AbstractController
         // Render header and footer.
         $this->renderParts();
 
+        // todo: add styles
+        /*
+        $this->assets->set(
+            'Modoauth',
+            $this->assets->getEmptyCssCollection()
+                ->addCss('assets/css/theme.css')
+        );
+        */
+
         $form = $this->view->form = new LoginForm;
         $fieldset = $form->addContentFieldSet()
             ->setAttribute('id', 'form_oauth')
             ->setAttribute('class', 'form_footer');
 
+        $this->view->oAuthServices = $this->registry->oauth;
+
         foreach ($this->registry->oauth as $name => $service) {
-            // todo: add custom buttons or partial
-            $fieldset->addButtonLink(
-                $name,
-                // todo: translate
-                'Login with '. $name,
-                ['for' => 'oauth-redirect','name' => $name]
-            );
+            $fieldset->add(new SocialLogin($name));
         }
         return null;
     }
@@ -64,7 +70,7 @@ class IndexController extends AbstractController
      * Redirect to appropriate service
      *
      * @return \Phalcon\Http\ResponseInterface
-     * @throw Exception if not authorized service is reqested
+     * @throw Exception if not authorized service is requested
      *
      * @Route("/oauth/redirect/{name:[a-zA-Z0-9_-]+}", methods={"GET"}, name="oauth-redirect")
      */
@@ -167,7 +173,7 @@ class IndexController extends AbstractController
             $user = new User;
             $user->role_id = Role::getDefaultRole()->id;
             $user->username = $email;
-            // Only way to login with password would be to reset password
+            // Only way to login with password would be to reset it
             $user->password = $this->security->getSaltBytes();
             $user->email = $email;
 
