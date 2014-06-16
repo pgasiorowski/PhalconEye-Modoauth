@@ -1,0 +1,14 @@
+{
+    "name": "woo/phalconeye-module-oauth",
+    "type": "phalconeye-module",
+    "description" : "PhalconEye Module - OAuth",
+    "keywords" : [ "phalcon", "cms", "oauth" ],
+    "homepage" : "https://github.com/WooDzu/PhalconEye-Modoauth",
+    "license": "MIT",
+    "require": {
+            "lusitanian/oauth": "1.0.x-dev"
+    },
+    "extra": {
+        "name": "modoauth"
+    }
+}
